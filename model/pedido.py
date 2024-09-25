@@ -8,6 +8,3 @@ class Pedido(Base):
     id_pedido = Column("pk_pedido", Integer, primary_key=True)
     id_cliente = Column(Integer, ForeignKey('cliente.pk_cliente'))
     id_produto = Column(Integer, ForeignKey('produto.pk_produto'))
-
-    cliente = relationship("Cliente")
-    produto = relationship("Produto")

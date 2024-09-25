@@ -27,3 +27,5 @@
  * Running on http://192.168.1.69:5000 - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
 [2024-09-25 16:05:21,216] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
 [2024-09-25 16:05:21,218] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-25 18:39:23,310] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\model\\pedido.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-25 18:39:23,435] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
