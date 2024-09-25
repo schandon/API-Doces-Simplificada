@@ -6,6 +6,7 @@ Flask-Cors
 flask-openapi3
 flask-restx
 Flask-SQLAlchemy
+Flask-migrate
 greenlet
 gunicorn
 importlib-metadata
