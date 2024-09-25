@@ -20,10 +20,6 @@ from logger import logger
 info = Info(title="Api Doces", version="1.0.0")
 app = OpenAPI(__name__, info=info)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 # definindo tags
 produto_tag = Tag(name="Produto", description="Adição, visualização e remoção de produtos à base")
