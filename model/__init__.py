@@ -8,7 +8,6 @@ from model.base import Base
 from model.produto import Produto
 from model.cliente import Cliente
 from model.pedido import Pedido
-from model.pedidoproduto import PedidoProduto
 
 
 db_path = "database/"

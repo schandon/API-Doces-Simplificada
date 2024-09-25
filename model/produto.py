@@ -16,7 +16,7 @@ class Produto(Base):
     data_insercao = Column(DateTime, default=datetime.now)
     valor_total = Column(Float, nullable=True)
 
-    pedidos = relationship("PedidoProduto", back_populates="produto")
+    pedidos = relationship("Pedido")
 
     def __init__(self, nome: str, descricao: str, valor: float, quantidade: int,
                  imagem_path: str, data_insercao: Union[DateTime, None] = None):

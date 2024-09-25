@@ -5,11 +5,9 @@ from model import Base
 class Pedido(Base):
     __tablename__ = 'pedido'
 
-    id = Column("pk_pedido", Integer, primary_key=True)
-    cliente_id = Column(Integer, ForeignKey('cliente.pk_cliente'), nullable=False)
+    id_pedido = Column("pk_pedido", Integer, primary_key=True)
+    id_cliente = Column(Integer, ForeignKey('cliente.pk_cliente'))
+    id_produto = Column(Integer, ForeignKey('produto.pk_produto'))
 
-    # Relacionamento com Cliente
-    cliente = relationship("Cliente", backref="pedidos")
-
-    # Relacionamento com a tabela de junção PedidoProduto
-    produtos = relationship("PedidoProduto", back_populates="pedido")
+    cliente = relationship("Cliente")
+    produto = relationship("Produto")

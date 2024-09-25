@@ -7,11 +7,10 @@ class ClienteSchema(BaseModel):
     nome: str = "Alexandre Pereira"
     email: str = "Alexandre.Pereira@teste.com"
     cep: str = "95259025"
-    endereco: Optional[str] = "Teste Tetse"
-    bairro: Optional[str] = "Recreio"
-    localidade: Optional[str] = "testetteste"
-    uf: Optional[str] = "RS"    
-    data_nascimento: datetime = 26/10/1997
+    endereco: Optional[str] = ""
+    bairro: Optional[str] = ""
+    localidade: Optional[str] = ""
+    uf: Optional[str] = ""    
     
     model_config = ConfigDict(from_attributes=True) 
          
@@ -36,9 +35,9 @@ def apresenta_cliente(cliente):
         "email": cliente.email,
         "cep": cliente.cep,
         "endereco": cliente.endereco,
-        "numero": cliente.numero,
-        "complemento": cliente.complemento,
-        "data_nascimento": cliente.data_nascimento.strftime("%d/%m/%Y"),   
+        "bairro": cliente.bairro,
+        "localidade": cliente.localidade,
+        "uf": cliente.uf
     }
     
 class ClienteListaViewSchema(BaseModel):

@@ -17,10 +17,9 @@ class Cliente(Base):
     bairro = Column(String(4000), nullable=True)
     localidade = Column(String(4000),nullable=True)
     uf = Column(String(2), nullable=True)
-    data_nascimento = Column(DateTime, nullable=True)
     data_insercao = Column(DateTime, default=datetime.now)
 
-    pedidos = relationship("Pedido", back_populates="cliente")
+    pedidos = relationship("Pedido")
 
     def __init__(self, nome:str, email:str, cep:str , endereco:str, bairro: str, localidade: str, uf:str,
         data_nascimento:Union[DateTime, None] = None, data_insercao:Union[DateTime, None] = None):

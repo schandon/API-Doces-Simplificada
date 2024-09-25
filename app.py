@@ -1,11 +1,11 @@
-from email.mime import base
+# from email.mime import base
 from sqlalchemy.exc import IntegrityError
-from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
+# from flask_migrate import Migrate
+# from flask_sqlalchemy import SQLAlchemy
 from flask_openapi3 import Info, Tag
 from flask_openapi3 import OpenAPI
 from flask_cors import CORS
-from flask import redirect
+from flask import redirect, request, jsonify
 from model.produto import Produto
 from model.cliente import Cliente
 from model.pedido import Pedido
@@ -15,6 +15,7 @@ from schemas.error import *
 from schemas.pedido import *
 from schemas.cliente import *
 from logger import logger
+from datetime import datetime
 
 
 info = Info(title="Api Doces", version="1.0.0")
@@ -30,13 +31,26 @@ pedido_tag = Tag(name="Pedido", description="Adição, visualização e remoçã
 def home():
     return redirect('/openapi')
 
+def get_address_from_cep(cep):
+    response = request.get(f'https://viacep.com.br/ws/${cep}/json/')
+    if response.status_code == 200:
+        data = response.json()
+        if "erro" not in data:
+            return {
+                "endereco": data.get("logradouro"),
+                "bairro": data.get("bairro"),
+                "localidade": data.get("localidade"),
+                "uf": data.get("uf")
+            }
+    return None
 
+#---------------------------------Produto-----------------------------------#
 @app.post('/produto', tags=[produto_tag],
           responses={"200": ProdutoViewSchema, "409": ErrorSchema, "400": ErrorSchema})
 def add_produto(form: ProdutoSchema):
     """Adiciona um novo Produto à base de dados
 
-    Retorna uma representação dos produtos e comentários associados.
+    Retorna uma representação dos produtos e 
     """
     session = Session()
     produto = Produto(
@@ -139,15 +153,24 @@ def del_produto(query: ProdutoBuscaSchema):
 def add_cliente(form: ClienteSchema):
     """Adiciona um novo cliente à base de dados
 
-    Retorna uma representação dos clientes e comentários associados.
+    Retorna uma representação dos clientes
     """
+    
+    address_info = get_address_from_cep(form.cep)
+    if not address_info:
+        return {"message": "CEP inválido ou não encontrado"}, 400
+    
+    
     session = Session()
     cliente = cliente(
         nome=form.nome,
-        descricao=form.descricao,
-        valor=form.valor,
-        imagem_path=form.imagem,
-        quantidade=form.quantidade
+        email=form.email,
+        cep=form.cep,
+        endereco= address_info['endereco'],
+        bairro= address_info['bairro'],
+        localidade= address_info['localidade'],
+        uf= address_info['uf'], 
+        
         )
     logger.debug(f"Adicionando cliente de nome: '{cliente.nome}'")
     try:
