@@ -1,31 +1,17 @@
-[2024-09-25 15:56:06,105] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:57:30,253] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 15:57:30] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:57:51,700] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\app.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:57:51,831] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:57:58,933] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 15:57:58] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:58:01,069] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 15:58:01] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 15:58:02,167] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 15:58:02] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:00:35,656] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\app.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:00:35,787] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:01:21,455] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\app.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:01:21,570] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:01:24,406] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\app.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:01:24,557] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:02:06,165] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 16:02:06] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:02:25,410] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\app.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:02:25,526] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:02:33,582] INFO _log() L97   127.0.0.1 - - [25/Sep/2024 16:02:33] "[31m[1mPOST /cliente HTTP/1.1[0m" 422 - - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:05,295] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2024-09-27 01:31:39,944] INFO _log() L97   172.18.0.1 - - [27/Sep/2024 01:31:39] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:31:39,997] INFO _log() L97   172.18.0.1 - - [27/Sep/2024 01:31:39] "GET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1" 200 - - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:31:39,997] INFO _log() L97   172.18.0.1 - - [27/Sep/2024 01:31:39] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:31:39,997] INFO _log() L97   172.18.0.1 - - [27/Sep/2024 01:31:39] "GET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1" 200 - - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:31:40,177] INFO _log() L97   172.18.0.1 - - [27/Sep/2024 01:31:40] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:32:21,775] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.69:5000 - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:05,296] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:05,298] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:21,216] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.18.0.2:5000 - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:32:21,779] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:32:21,781] INFO _log() L97    * Restarting with stat - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:46:23,597] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.69:5000 - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:21,216] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 16:05:21,218] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 18:39:23,310] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Flash\\model\\pedido.py', reloading - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-25 18:39:23,435] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Flash\env\Lib\site-packages\werkzeug\_internal.py L97  
+ * Running on http://172.18.0.2:5000 - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:46:23,600] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  
+[2024-09-27 01:46:23,601] INFO _log() L97    * Restarting with stat - call_trace=/usr/local/lib/python3.9/site-packages/werkzeug/_internal.py L97  

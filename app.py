@@ -1,7 +1,5 @@
 # from email.mime import base
 from sqlalchemy.exc import IntegrityError
-# from flask_migrate import Migrate
-# from flask_sqlalchemy import SQLAlchemy
 from flask_openapi3 import Info, Tag
 from flask_openapi3 import OpenAPI
 from flask_cors import CORS
@@ -15,7 +13,7 @@ from schemas.error import *
 from schemas.pedido import *
 from schemas.cliente import *
 from logger import logger
-from datetime import datetime
+import requests
 
 
 info = Info(title="Api Doces", version="1.0.0")
@@ -31,19 +29,15 @@ pedido_tag = Tag(name="Pedido", description="Adição, visualização e remoçã
 def home():
     return redirect('/openapi')
 
-def get_address_from_cep(cep):
-    response = request.get(f'https://viacep.com.br/ws/${cep}/json/')
-    if response.status_code == 200:
-        data = response.json()
-        if "erro" not in data:
-            return {
-                "endereco": data.get("logradouro"),
-                "bairro": data.get("bairro"),
-                "localidade": data.get("localidade"),
-                "uf": data.get("uf")
-            }
-    return None
-
+def atualiza_cep(id_cep):
+    try:
+        response = requests.get(f'http://localhost:9000/endereco?id={id_cep}')
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+    except Exception as e:
+        return {"error": "Erro ao acessar API secundária"}, 500
 #---------------------------------Produto-----------------------------------#
 @app.post('/produto', tags=[produto_tag],
           responses={"200": ProdutoViewSchema, "409": ErrorSchema, "400": ErrorSchema})
@@ -126,15 +120,12 @@ def del_produto(query: ProdutoBuscaSchema):
     Retorna uma mensagem de confirmação da remoção.
     """
     produto_id = query.id
-    produto_nome = query.nome
 
     logger.debug(f"Deletando dados sobre produto #{produto_id}")
     session = Session()
 
     if produto_id:
         count = session.query(Produto).filter(Produto.id == produto_id).delete()
-    else:
-        count = session.query(Produto).filter(Produto.nome == produto_nome).delete()
 
     session.commit()
     if count:
@@ -199,7 +190,7 @@ def get_cliente(query: ClienteBuscaSchema):
     cliente_id = query.id
     logger.debug(f"Coletando dados sobre cliente #{cliente_id}")
     session = Session()
-    cliente = session.query(cliente).filter(cliente.id == cliente_id).first()
+    cliente = session.query(Cliente).filter(Cliente.id == cliente_id).first()
     if not cliente:
         error_msg = "cliente não encontrado na base :/"
         logger.warning(f"Erro ao buscar cliente '{cliente_id}', {error_msg}")
@@ -208,7 +199,7 @@ def get_cliente(query: ClienteBuscaSchema):
         logger.debug(f"cliente econtrado: '{cliente.nome}'")
         return apresenta_cliente(cliente), 200
 
-@app.get('/cliente', tags=[cliente_tag],
+@app.get('/clientes', tags=[cliente_tag],
          responses={"200": ClienteListaViewSchema, "404": ErrorSchema})
 def get_clientes():
     """Lista todos os clientes cadastrados na base
@@ -255,6 +246,54 @@ def del_cliente(query: ClienteBuscaSchema):
         return {"mesage": error_msg}, 400
     
     
+@app.put('/cliente', tags=[cliente_tag],
+         responses={"200": ClienteViewSchema, "404": ErrorSchema})
+def update_cliente(query: ClienteUpdateSchema):
+    """Atualiza um cliente a partir do ID informado.
+
+    Retorna uma mensagem de confirmação da atualização.
+    """
+    cliente_id = query.id
+
+    logger.debug(f"Atualizando dados do cliente #{cliente_id}")
+    session = Session()
+
+    try:
+        # Buscar o cliente existente
+        cliente = session.query(Cliente).filter(Cliente.id == cliente_id).first()
+
+        if not cliente:
+            error_msg = f"Cliente com ID {cliente_id} não encontrado."
+            logger.warning(f"Erro ao atualizar cliente #{cliente_id}, {error_msg}")
+            return {"message": error_msg}, 404
+
+       
+
+        # Atualizar as informações de endereço
+        cliente.nome = query.nome
+        cliente.email = query.email
+        cliente.cep = query.cep
+        cliente.endereco = address_info['endereco']
+        cliente.bairro = address_info['bairro']
+        cliente.localidade = address_info['localidade']
+        cliente.uf = address_info['uf']
+
+        # Commit da transação
+        session.commit()
+
+        logger.debug(f"Cliente #{cliente_id} atualizado com sucesso.")
+        return {"message": "Cliente atualizado", "id": cliente_id}, 200
+
+    except Exception as e:
+        session.rollback()
+        error_msg = f"Erro ao atualizar cliente: {str(e)}"
+        logger.error(error_msg)
+        return {"message": error_msg}, 500
+
+    finally:
+        session.close()
+
+    
     
     #-------------------Pedido----------------------------------------------#
     
@@ -264,31 +303,28 @@ def del_cliente(query: ClienteBuscaSchema):
 def add_pedido(form: PedidoSchema):
     """Adiciona um novo pedido à base de dados
 
-    Retorna uma representação dos pedidos e comentários associados.
+    Retorna uma representação dos pedidos.
     """
     session = Session()
-    pedido = pedido(
-        nome=form.nome,
-        descricao=form.descricao,
-        valor=form.valor,
-        imagem_path=form.imagem,
-        quantidade=form.quantidade
+    pedido = Pedido(
+        id_cliente=form.id_cliente,
+        id_produto=form.id_produto,
         )
-    logger.debug(f"Adicionando pedido de nome: '{pedido.nome}'")
+    logger.debug(f"Adicionando pedido de nome: '{pedido.id}'")
     try:
         # adicionando pedido
         session.add(pedido)
         # efetivando o camando de adição de novo item na tabela
         session.commit()
-        logger.debug(f"Adicionado pedido de nome: '{pedido.nome}'")
+        logger.debug(f"Adicionado pedido de nome: '{pedido.id}'")
         return apresenta_pedido(pedido), 200
     except IntegrityError as e:
         error_msg = "pedido de mesmo nome já salvo na base :/"
-        logger.warning(f"Erro ao adicionar pedido '{pedido.nome}', {error_msg}")
+        logger.warning(f"Erro ao adicionar pedido '{pedido.id}', {error_msg}")
         return {"mesage": error_msg}, 409
     except Exception as e:
         error_msg = "Não foi possível salvar novo item :/"
-        logger.warning(f"Erro ao adicionar pedido '{pedido.nome}', {error_msg}")
+        logger.warning(f"Erro ao adicionar pedido '{pedido.id}', {error_msg}")
         return {"mesage": error_msg}, 400
 
 @app.get('/pedido', tags=[pedido_tag],
@@ -301,16 +337,16 @@ def get_pedido(query: PedidoBuscaSchema):
     pedido_id = query.id
     logger.debug(f"Coletando dados sobre pedido #{pedido_id}")
     session = Session()
-    pedido = session.query(pedido).filter(pedido.id == pedido_id).first()
+    pedido = session.query(Pedido).filter(Pedido.id == pedido_id).first()
     if not pedido:
         error_msg = "pedido não encontrado na base :/"
         logger.warning(f"Erro ao buscar pedido '{pedido_id}', {error_msg}")
         return {"mesage": error_msg}, 400
     else:
-        logger.debug(f"pedido econtrado: '{pedido.nome}'")
+        logger.debug(f"pedido econtrado: '{pedido.id}'")
         return apresenta_pedido(pedido), 200
 
-@app.get('/pedido', tags=[pedido_tag],
+@app.get('/pedidos', tags=[pedido_tag],
          responses={"200": PedidoListaViewSchema, "404": ErrorSchema})
 def get_pedidos():
     """Lista todos os pedidos cadastrados na base
@@ -319,7 +355,7 @@ def get_pedidos():
     """
     logger.debug(f"Coletando lista de pedidos")
     session = Session()
-    pedidos = session.query(pedidos).all()
+    pedidos = session.query(Pedido).all()
     print(pedidos)
     if not pedidos:
         error_msg = "pedido não encontrado na base :/"
@@ -337,15 +373,12 @@ def del_pedido(query: PedidoBuscaSchema):
     Retorna uma mensagem de confirmação da remoção.
     """
     pedido_id = query.id
-    pedido_nome = query.nome
 
     logger.debug(f"Deletando dados sobre pedido #{pedido_id}")
     session = Session()
 
     if pedido_id:
         count = session.query(Pedido).filter(Pedido.id == pedido_id).delete()
-    else:
-        count = session.query(Pedido).filter(Pedido.nome == pedido_nome).delete()
 
     session.commit()
     if count:
@@ -355,3 +388,50 @@ def del_pedido(query: PedidoBuscaSchema):
         error_msg = "pedido não encontrado na base :/"
         logger.warning(f"Erro ao deletar pedido #'{pedido_id}', {error_msg}")
         return {"mesage": error_msg}, 400
+    
+@app.post('/cliente-endereço', tags=[cliente_tag],
+          responses={"200": ClienteViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+def add_cliente_endereço(form: ClienteCepSchema):
+    """Adiciona um novo cliente à base de dados
+
+    Retorna uma representação dos clientes
+    """
+    ViaCep = atualiza_cep(form.cep)
+    if not ViaCep:
+        return {"message": "CEP inválido ou não encontrado"}, 400
+    
+    
+        
+    campos_obrigatorios = ['cep', 'endereco', 'bairro', 'localidade', 'uf']
+    for campo in campos_obrigatorios:
+        if campo not in ViaCep:
+            return {"message": f"Campo {campo} não encontrado na resposta da API ViaCep"}, 400
+        
+    session = Session()
+    cliente = Cliente(
+        nome=form.nome,
+        email=form.email,
+        cep=ViaCep['cep'],
+        endereco= ViaCep['endereco'],
+        bairro= ViaCep['bairro'],
+        localidade= ViaCep['localidade'],
+        uf= ViaCep['uf'], 
+        )
+    logger.debug(f"Adicionando cliente de nome: '{cliente.nome}'")
+    try:
+        # adicionando cliente
+        session.add(cliente)
+        # efetivando o camando de adição de novo item na tabela
+        session.commit()
+        logger.debug(f"Adicionado cliente de nome: '{cliente.nome}'")
+        return apresenta_cliente(cliente), 200
+    except IntegrityError as e:
+        error_msg = "cliente de mesmo nome já salvo na base :/"
+        logger.warning(f"Erro ao adicionar cliente '{cliente.nome}', {error_msg}")
+        return {"mesage": error_msg}, 409
+    except Exception as e:
+        error_msg = "Não foi possível salvar novo item :/"
+        logger.warning(f"Erro ao adicionar cliente '{cliente.nome}', {error_msg}")
+        return {"mesage": error_msg}, 400
+    finally:
+        session.close()

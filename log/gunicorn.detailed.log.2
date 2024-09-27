@@ -1,0 +1,79 @@
+[2024-09-26 22:24:03,065] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:24:10,229] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:24:43,875] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:24:45,906] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:24:52,998] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:09,718] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:09] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:09,816] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:09] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:09,819] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:09] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:09,820] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:09] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:09,942] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:09] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:25:19,597] ERROR log_exception() L838  Exception on /pedido [POST] - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\app.py", line 310, in add_pedido
+    cliente_id=form.cliente_id,
+               ^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'PedidoSchema' object has no attribute 'cliente_id'
+[2024-09-26 22:25:19,603] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:25:19] "[35m[1mPOST /pedido HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:01,805] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\app.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:01,987] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:06,469] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\schemas\\pedido.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:06,657] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:11,010] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\schemas\\pedido.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:11,186] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:14,384] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:26:14] "POST /pedido HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:37,191] ERROR log_exception() L838  Exception on /pedido [GET] - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\app.py", line 340, in get_pedido
+    pedido = session.query(pedido).filter(pedido.id == pedido_id).first()
+                           ^^^^^^
+UnboundLocalError: cannot access local variable 'pedido' where it is not associated with a value
+[2024-09-26 22:26:37,194] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:26:37] "[35m[1mGET /pedido?id=1 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:50,312] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\app.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:50,462] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:26:52,504] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:26:52] "GET /pedido?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:03,918] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:03] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:04,020] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:04] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:04,022] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:04] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:04,024] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:04] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:04,144] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:04] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:12,316] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:12] "POST /pedido HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:27:31,731] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:27:31] "POST /pedido HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  

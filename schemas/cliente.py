@@ -13,11 +13,20 @@ class ClienteSchema(BaseModel):
     uf: Optional[str] = ""    
     
     model_config = ConfigDict(from_attributes=True) 
+
+class ClienteCepSchema(BaseModel):
+    cliente_id: int = 1
+    nome: str = "Alexandre Pereira"
+    email: str = "Alexandre.Pereira@teste.com"
+    cep: str = 1
+    endereco: Optional[str] = ""
+    bairro: Optional[str] = ""
+    localidade: Optional[str] = ""
+    uf: Optional[str] = ""   
          
 class ClienteBuscaSchema(BaseModel):
   id: Optional[int] = 1
   nome: Optional[str] = "Alexandre Pereira"
-  
   
 class ClienteViewSchema(BaseModel):
     id: int = 1
@@ -26,6 +35,15 @@ class ClienteViewSchema(BaseModel):
 class ClienteDelSchema(BaseModel):
     id: int
     nome: str = "Alexandre Pereira"
+    
+class ClienteUpdateSchema(BaseModel):
+    nome: str = "Alex"
+    email: str = "Alexandre@teste.com"
+    cep: str = "21240050"
+    endereco: Optional[str] = ""
+    bairro: Optional[str] = ""
+    localidade: Optional[str] = ""
+    uf: Optional[str] = ""
     
 def apresenta_cliente(cliente):
      

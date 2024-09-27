@@ -12,7 +12,7 @@ class ProdutoSchema(BaseModel):
 
 class ProdutoBuscaSchema(BaseModel):
     id: Optional[int] = 1
-    nome: Optional[str] = "Bolo de Laranja"
+    # nome: Optional[str] = "Bolo de Laranja"
 
 
 class ProdutoViewSchema(BaseModel):

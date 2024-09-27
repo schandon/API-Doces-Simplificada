@@ -1,89 +1,80 @@
-[2024-09-24 22:29:13,487] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.69:5000 - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:29:13,489] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:29:13,491] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:29:36,541] ERROR log_exception() L838  Exception on /produto [POST] - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask\app.py L838 
+[2024-09-26 21:54:56,710] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:01,143] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\schemas\\produto.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:01,357] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:05,163] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:05] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:05,263] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:05] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:05,266] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:05] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:05,267] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:05] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:05,396] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:05] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:21,512] WARNING get_produto() L88   Erro ao buscar produto '1', Produto não encontrado na base :/ - call_trace=C:\Projetos\API-Doces-Simplificada\app.py L88  
+[2024-09-26 21:55:21,513] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:21] "[31m[1mGET /produto?id=1 HTTP/1.1[0m" 400 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:29,435] WARNING get_produtos() L108  Erro ao buscar por lista de produtos. Produto não encontrado na base :/ - call_trace=C:\Projetos\API-Doces-Simplificada\app.py L108 
+[2024-09-26 21:55:29,436] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:29] "[31m[1mGET /produtos HTTP/1.1[0m" 400 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:55:59,469] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:55:59] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:56:24,502] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:56:24] "GET /produto?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:56:34,580] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:56:34] "GET /produtos HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:57:04,374] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:57:04] "GET /produtos HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:57:43,494] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:57:43] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:58:04,628] WARNING add_produto() L67   Erro ao adicionar produto 'Docinho de Festa', Produto de mesmo nome já salvo na base :/ - call_trace=C:\Projetos\API-Doces-Simplificada\app.py L67  
+[2024-09-26 21:58:04,629] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:58:04] "[31m[1mPOST /produto HTTP/1.1[0m" 409 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:58:56,360] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:58:56] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:59:30,881] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:59:30] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:59:40,864] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:59:40] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 21:59:46,865] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 21:59:46] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:00:01,292] ERROR log_exception() L838  Exception on /produto [DELETE] - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py L838 
 Traceback (most recent call last):
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2423, in _determine_joins
-    self.primaryjoin = join_condition(
-                       ^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\sql\util.py", line 123, in join_condition
-    return Join._join_condition(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\sql\selectable.py", line 1380, in _join_condition
-    raise exc.NoForeignKeysError(
-sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'produto' and 'pedido'.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
     rv = self.handle_user_exception(e)
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
                                                 ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
     rv = self.dispatch_request()
          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
     response = func(**func_kwargs)
                ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\app.py", line 46, in add_produto
-    produto = Produto(
-              ^^^^^^^^
-  File "<string>", line 4, in __init__
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\state.py", line 566, in _initialize_instance
-    manager.dispatch.init(self, args, kwargs)
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\event\attr.py", line 497, in __call__
-    fn(*args, **kw)
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4396, in _event_on_init
-    instrumenting_mapper._check_configure()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2388, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4204, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4245, in _do_configure_registries
-    mapper._post_configure_properties()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2405, in _post_configure_properties
-    prop.init()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\interfaces.py", line 584, in init
-    self.do_init()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1644, in do_init
-    self._setup_join_conditions()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\relationships.py", line 1884, in _setup_join_conditions
-    self._join_condition = jc = JoinCondition(
-                                ^^^^^^^^^^^^^^
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2310, in __init__
-    self._determine_joins()
-  File "C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\sqlalchemy\orm\relationships.py", line 2444, in _determine_joins
-    raise sa_exc.NoForeignKeysError(
-sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Produto.pedidos - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
-[2024-09-24 22:29:36,551] INFO _log() L97   127.0.0.1 - - [24/Sep/2024 22:29:36] "[35m[1mPOST /produto HTTP/1.1[0m" 500 - - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:30:58,732] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\pedido.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:30:58,874] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:36,613] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\pedidoproduto.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:36,774] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:41,889] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\pedidoproduto.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:42,051] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:52,299] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\produto.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:52,452] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:59,511] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\produto.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:31:59,649] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:32:21,882] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.69:5000 - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:32:21,883] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:32:21,884] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:32:26,535] INFO _log() L97   127.0.0.1 - - [24/Sep/2024 22:32:26] "[35m[1mPOST /produto HTTP/1.1[0m" 500 - - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:41:49,320] INFO _log() L97    * Detected change in 'C:\\Users\\sp-xa\\OneDrive\\Área de Trabalho\\api-flask\\model\\__init__.py', reloading - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-09-24 22:41:49,491] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\sp-xa\OneDrive\Área de Trabalho\api-flask\env\Lib\site-packages\werkzeug\_internal.py L97  
+  File "C:\Projetos\API-Doces-Simplificada\app.py", line 123, in del_produto
+    produto_nome = query.nome
+                   ^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'nome'
+[2024-09-26 22:00:01,309] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:00:01] "[35m[1mDELETE /produto?id=6 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:00:30,233] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\app.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:00:30,455] INFO _log() L97    * Restarting with stat - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:00:32,282] ERROR log_exception() L838  Exception on /produto [DELETE] - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\app.py", line 123, in del_produto
+    produto_nome = query.nome
+                   ^^^^^^^^^^
+  File "C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'nome'
+[2024-09-26 22:00:32,287] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:00:32] "[35m[1mDELETE /produto?id=6 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:00:40,098] INFO _log() L97    * Detected change in 'C:\\Projetos\\API-Doces-Simplificada\\app.py', reloading - call_trace=C:\Projetos\API-Doces-Simplificada\env\Lib\site-packages\werkzeug\_internal.py L97  
